@@ -6,9 +6,12 @@
   (format t "~a" prompt)
   (read-line))
 
-(defun do-add (name edition)
-  "Add a card to the database."
-  (format t "Will add card ~a, edition ~a.~%" name edition))
+(defun split-string (str)
+  "Parse a string, splitting it in substrings."
+  (loop for i = 0 then (1+ j)
+        as j = (position #\Space str :start i)
+        collect (subseq str i j)
+        while j))
 
 ; Print program banner
 (format t "Collector, a card database for Magic: the Gathering -- CLI client.~%")
@@ -17,7 +20,10 @@
 ; Main loop -- loops for commands to execute.
 (loop
   (let ((line (read-prompt "=> ")))
-    (cond
-      ((string-equal line "quit") (progn (format t "Bye!~%") (return)))
-      ((string-equal line "add")  (do-add "Takeno" "Campeões de Kamigawa"))
-      ((string-equal line "query")) (do-query "Takeno") )))
+    (let ((spline (split-string line)))
+      (cond
+        ((string-equal (car spline) "quit") (progn (format t "Bye!~%") (return)))
+        ((string-equal (car spline) "add")
+          (collector-db:add-card "Takeno" "Campeões de Kamigawa"))
+        ((string-equal (car spline) "query"))
+          (collector-db:query-card-name "Takeno")))))
