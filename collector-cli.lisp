@@ -1,5 +1,5 @@
 ; Load needed packages.
-(load "./database.lisp")
+(load "./collector-db.lisp")
 
 (use-package :collector-db)
 
