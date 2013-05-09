@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Just opens a clisp REPL
-clisp cli.lisp
+clisp collector-cli.lisp
