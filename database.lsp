@@ -13,7 +13,9 @@
 (defvar *db* (connect "collector.db"))
 
 (defun query-card-name (name)
-  "Add a new card to the database."
-  (format t "Card: ~a (~a)~%" name edition))
+  "Query for a card on the database."
+  (format t "Card: ~a~%" name))
 
-(defun add-card (name edition))
+(defun add-card (name edition)
+  "Add a new card to the database."
+  (format t "Adding card: ~a, Edition: ~a~%" name edition))

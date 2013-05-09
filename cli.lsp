@@ -13,6 +13,7 @@
         collect (subseq str i j)
         while j))
 
+
 ; Print program banner
 (format t "Collector, a card database for Magic: the Gathering -- CLI client.~%")
 (format t "~%")
@@ -20,10 +21,10 @@
 ; Main loop -- loops for commands to execute.
 (loop
   (let ((line (read-prompt "=> ")))
-    (let ((spline (split-string line)))
+    (let ((splitl (split-string line)))
       (cond
-        ((string-equal (car spline) "quit") (progn (format t "Bye!~%") (return)))
-        ((string-equal (car spline) "add")
+        ((string-equal (car splitl) "quit") (progn (format t "Bye!~%") (return)))
+        ((string-equal (car splitl) "add")
           (collector-db:add-card "Takeno" "Campeões de Kamigawa"))
-        ((string-equal (car spline) "query"))
+        ((string-equal (car splitl) "query"))
           (collector-db:query-card-name "Takeno")))))
