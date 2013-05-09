@@ -1,4 +1,6 @@
-(load "./database.lsp")
+; Load needed packages.
+(load "./database.lisp")
+
 (use-package :collector-db)
 
 (defun read-prompt (prompt)

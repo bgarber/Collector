@@ -6,9 +6,11 @@
 (in-package :collector-db)
 
 (load "~/quicklisp/setup.lisp")
-(ql:quickload "sqlite")
+(ql:quickload :sqlite)
 
 (use-package :sqlite)
+(use-package :iter)
+
 
 (defvar *db* (connect "collector.db"))
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Just opens a clisp REPL
+clisp cli.lisp
